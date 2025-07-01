@@ -1,15 +1,28 @@
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
-import { ReactNode } from 'react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
-export const metadata = {
-  title: 'OrbitX',
-  description: 'A modern trading platform',
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'TradePro - Modern Trading Platform',
+  description: 'Experience the future of trading with AI-powered insights and real-time market data',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
-}  
+}
